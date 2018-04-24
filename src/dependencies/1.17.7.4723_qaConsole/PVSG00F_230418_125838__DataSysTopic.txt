@@ -1,2 +1,0 @@
-{"data": "from Sys topic"}
-{"opcode":"sessionFinish","payload":["3204","0","0","0"]}

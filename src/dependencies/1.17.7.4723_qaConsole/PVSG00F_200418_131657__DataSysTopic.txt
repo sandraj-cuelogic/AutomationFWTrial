@@ -1,3 +1,0 @@
-{"data": "from Sys topic"}
-{"opcode":"log","sessionId":3197,"sev":0,"lvl":0,"sysID":25,"evtID":0,"msg":"Main view shown"}
-{"opcode":"log","sessionId":3197,"sev":0,"lvl":1,"sysID":20,"evtID":22,"msg":"Initializing motors"}
