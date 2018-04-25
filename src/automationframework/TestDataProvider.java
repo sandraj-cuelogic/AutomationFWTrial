@@ -1,4 +1,4 @@
-package commonautomationframework;
+package automationframework;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

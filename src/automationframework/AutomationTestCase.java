@@ -4,8 +4,6 @@ import java.util.HashMap;
 
 import org.openqa.selenium.WebDriver;
 
-import commonautomationframework.AutomationLog;
-import commonautomationframework.TestDataProvider;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;

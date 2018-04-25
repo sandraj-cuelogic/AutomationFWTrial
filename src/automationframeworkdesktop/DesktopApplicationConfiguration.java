@@ -7,8 +7,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-import automationframework.Configuration;
-
 public class DesktopApplicationConfiguration 
 {
     private Properties properties = new Properties();

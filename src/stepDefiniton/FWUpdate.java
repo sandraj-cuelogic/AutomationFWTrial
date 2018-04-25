@@ -1,25 +1,21 @@
 package stepDefiniton;
 
 
-import java.io.File;
 import java.io.IOException;
 
 import org.testng.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.winium.DesktopOptions;
 import org.openqa.selenium.winium.WiniumDriver;
-import org.openqa.selenium.winium.WiniumDriverService;
 
 import commonautomationframework.ExcelLib;
-import commonautomationframework.ScreenshotAndTestNgReporterListener;
 import pageobjects.DesktopApplicationPage;
 import pageobjects.FWUpdatePage;
 import automationframeworkdesktop.DAAutomationTestCaseVerification;
+import automationframeworkdesktop.DAScreenshotAndTestNgReporterListener;
 import automationframeworkdesktop.DesktopApplicationConfiguration;
 
 
@@ -28,7 +24,7 @@ public class FWUpdate extends DAAutomationTestCaseVerification {
 	ExcelLib xl = new ExcelLib();
 	QAConsole_1_17_7 qa1_17 = new QAConsole_1_17_7();
 	FWUpdatePage fwUpdate = new FWUpdatePage(DesktopApplicationPage.driver);
-	ScreenshotAndTestNgReporterListener screen = new ScreenshotAndTestNgReporterListener();
+	DAScreenshotAndTestNgReporterListener screen = new DAScreenshotAndTestNgReporterListener();
 	String xclPath = DesktopApplicationConfiguration.getValue("Excelfile");
 	
 	String path = xl.getXLcellValue("TestData", 4, 1, xclPath);

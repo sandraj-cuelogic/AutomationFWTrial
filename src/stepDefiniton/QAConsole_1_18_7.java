@@ -14,8 +14,8 @@ import org.testng.Assert;
 import pageobjects.DesktopApplicationPage;
 import pageobjects.QAConsolePage;
 import commonautomationframework.ExcelLib;
-import commonautomationframework.ScreenshotAndTestNgReporterListener;
 import automationframeworkdesktop.DAAutomationTestCaseVerification;
+import automationframeworkdesktop.DAScreenshotAndTestNgReporterListener;
 import automationframeworkdesktop.DesktopApplicationConfiguration;
 
 
@@ -52,7 +52,7 @@ public class QAConsole_1_18_7 extends DAAutomationTestCaseVerification {
 
 		// Check whether qaconsole is opened successfully or not
 		if (qaconsole.homeDisplayed()) {
-			ScreenshotAndTestNgReporterListener.customScreenshot();
+			DAScreenshotAndTestNgReporterListener.customScreenshot();
 
 //			getScreenshot(driver, FOLDER_QACONSOLE);
 			Assert.fail(" QAConsole login failed, please try again");
@@ -63,7 +63,7 @@ public class QAConsole_1_18_7 extends DAAutomationTestCaseVerification {
 		settings = qaconsole.selectSettings();
 		settings.click();
 		Thread.sleep(1000);
-		ScreenshotAndTestNgReporterListener.customScreenshot();
+		DAScreenshotAndTestNgReporterListener.customScreenshot();
 
 //		getScreenshot(driver, FOLDER_QACONSOLE);
 
@@ -78,7 +78,7 @@ public class QAConsole_1_18_7 extends DAAutomationTestCaseVerification {
 		// Checking wait dialog
 		if (!qaconsole.saveEEPROMAlertDisplayed()) {
 			System.out.println("\n Saving EEPROM file");
-			ScreenshotAndTestNgReporterListener.customScreenshot();
+			DAScreenshotAndTestNgReporterListener.customScreenshot();
 //			getScreenshot(driver, FOLDER_QACONSOLE);
 		}else
 			System.out.println("\n Saving EEPROm file process not started");
@@ -86,7 +86,7 @@ public class QAConsole_1_18_7 extends DAAutomationTestCaseVerification {
 		// Checking success/error dialog
 		if (!qaconsole.popupDisplayed()) {
 			System.err.println("\n EEPROM transaction fail! (Timeout after 30s)");
-			ScreenshotAndTestNgReporterListener.customScreenshot();
+			DAScreenshotAndTestNgReporterListener.customScreenshot();
 
 //			getScreenshot(driver, FOLDER_QACONSOLE);
 			driver.findElementByName("OK").click();
@@ -121,13 +121,13 @@ public class QAConsole_1_18_7 extends DAAutomationTestCaseVerification {
 
 		// Check status
 		status = qaconsole.selectStatus().getText();
-		ScreenshotAndTestNgReporterListener.customScreenshot();
+		DAScreenshotAndTestNgReporterListener.customScreenshot();
 
 //		getScreenshot(driver, FOLDER_QACONSOLE);
 
 		// Check machine is connected to Internet or not
 		if (status.contains(notConnectedStatus)) {
-			ScreenshotAndTestNgReporterListener.customScreenshot();
+			DAScreenshotAndTestNgReporterListener.customScreenshot();
 
 //			getScreenshot(driver, FOLDER_QACONSOLE);
 			System.err.println("\n Machine is not connected to internet");

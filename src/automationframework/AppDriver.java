@@ -1,12 +1,10 @@
 package automationframework;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,12 +13,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.winium.DesktopOptions;
-import org.openqa.selenium.winium.WiniumDriver;
-import org.openqa.selenium.winium.WiniumDriverService;
-
-import commonautomationframework.AutomationLog;
 import commonautomationframework.ExcelLib;
 import automationframework.Configuration;
 import pageobjects.Page;

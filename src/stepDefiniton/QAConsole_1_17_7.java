@@ -17,12 +17,12 @@ import org.openqa.selenium.winium.WiniumDriverService;
 
 
 import commonautomationframework.ExcelLib;
-import commonautomationframework.ScreenshotAndTestNgReporterListener;
 import cucumber.api.java.en.Given;
 import pageobjects.DesktopApplicationPage;
 import pageobjects.QAConsolePage;
 import automationframework.AutomationFramework;
 import automationframeworkdesktop.DAAutomationTestCaseVerification;
+import automationframeworkdesktop.DAScreenshotAndTestNgReporterListener;
 import automationframeworkdesktop.DesktopApplicationConfiguration;
 import automationframeworkdesktop.DesktopApplicationDriverSetup;
 import automationframeworkdesktop.DesktopAutomationFramework;
@@ -72,7 +72,7 @@ public class QAConsole_1_17_7 extends DAAutomationTestCaseVerification {
 			// Check whether qaconsole is opened successfully or not
 			if (qaconsole.homeDisplayed()) {
 				ispowerOff = false;
-				ScreenshotAndTestNgReporterListener.customScreenshot();
+				DAScreenshotAndTestNgReporterListener.customScreenshot();
 //				getScreenshot(driver, FOLDER_QACONSOLE);
 				Assert.fail(" QAConsole login failed, please try again");
 			}
@@ -82,7 +82,7 @@ public class QAConsole_1_17_7 extends DAAutomationTestCaseVerification {
 			settings = qaconsole.selectSettings();
 			settings.click();
 			Thread.sleep(1000);
-			ScreenshotAndTestNgReporterListener.customScreenshot();
+			DAScreenshotAndTestNgReporterListener.customScreenshot();
 //			getScreenshot(driver, FOLDER_QACONSOLE);
 
 			// Check machine is power off / On Step 4
@@ -115,12 +115,12 @@ public class QAConsole_1_17_7 extends DAAutomationTestCaseVerification {
 
 		// Check status
 		status = qaconsole.selectStatus().getText();
-		ScreenshotAndTestNgReporterListener.customScreenshot();
+		DAScreenshotAndTestNgReporterListener.customScreenshot();
 //		getScreenshot(driver, FOLDER_QACONSOLE);
 
 		// Check machine is connected to Internet or not
 		if (status.contains(notConnectedStatus)) {
-			ScreenshotAndTestNgReporterListener.customScreenshot();
+			DAScreenshotAndTestNgReporterListener.customScreenshot();
 //			getScreenshot(driver, FOLDER_QACONSOLE);
 			System.err.println("\n Machine is not connected to internet");
 			disconnectClient();

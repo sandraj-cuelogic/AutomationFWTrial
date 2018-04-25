@@ -3,9 +3,9 @@
 <suite name="Suite" allow-return-values="true">
   <test thread-count="1" name="Test">
     <classes>
-      <class name="src.testcases.QAConsole_1_17_7"/>
-      <class name="src.testcases.FWUpdate"/>
-      <class name="src.testcases.QAConsole_1_18_7"/>
+      <class name="stepDefiniton.QAConsole_1_17_7"/>
+      <class name="stepDefiniton.FWUpdate"/>
+      <class name="stepDefiniton.QAConsole_1_18_7"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -5,7 +5,6 @@ package automationframework;
  */
 import java.util.Collection;
 
-import commonautomationframework.AutomationLog;
 
 import pageobjects.Page;
 

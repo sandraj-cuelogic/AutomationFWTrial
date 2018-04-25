@@ -2,12 +2,10 @@ package pageobjects;
 /**
  * @author Shubham Jain
  * */
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.winium.WiniumDriver;
-
-import automationframework.Configuration;
 
 
 public class DesktopApplicationPage 

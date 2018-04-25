@@ -1,4 +1,4 @@
-package commonautomationframework;
+package automationframeworkdesktop;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -11,14 +11,13 @@ import java.util.logging.Handler;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
-import automationframework.Configuration;
 
-public class AutomationLog 
+public class DAAutomationLog 
 {
-    private Logger logger = Logger.getLogger(AutomationLog.class.getSimpleName());
-    private static AutomationLog automationLogInstance = null;
+    private Logger logger = Logger.getLogger(DAAutomationLog.class.getSimpleName());
+    private static DAAutomationLog automationLogInstance = null;
     private static FileHandler fh;  
-    private AutomationLog()
+    private DAAutomationLog()
     {
         logger.setUseParentHandlers(false);
         LogFormatter formatter = new LogFormatter();
@@ -31,7 +30,7 @@ public class AutomationLog
         
      // This block configure the logger with handler and formatter  
         try {
-			fh = new FileHandler(Configuration.getConfigurationValueForProperty("LogFile"));
+			fh = new FileHandler(DesktopApplicationConfiguration.getConfigurationValueForProperty("LogFile"));
         }
          catch (Exception e) {
            System.out.println(e.getMessage());
@@ -45,18 +44,18 @@ public class AutomationLog
         /////////////// End File logger ///////////////////
     }
 
-    private static AutomationLog getAutomationLog()
+    private static DAAutomationLog getAutomationLog()
     {
         if (automationLogInstance == null)
         {
-            automationLogInstance = new AutomationLog();
+            automationLogInstance = new DAAutomationLog();
         }
         return automationLogInstance;
     }
     
     private static Logger getLogger()
     {
-        return AutomationLog.getAutomationLog().logger;
+        return DAAutomationLog.getAutomationLog().logger;
     }
 
     public static void startTestCase(String sTestCaseName)
@@ -112,9 +111,9 @@ public class AutomationLog
     {
         // TODO: Get the format from global config file.
         // Create a DateFormat to format the logger timestamp.
-        private final DateFormat df = new SimpleDateFormat(Configuration.getConfigurationValueForProperty("dateformat-logging"));
+        private final DateFormat df = new SimpleDateFormat(DesktopApplicationConfiguration.getConfigurationValueForProperty("dateformat-logging"));
 
-        private final String applicationName = Configuration.getConfigurationValueForProperty("applicationName");
+        private final String applicationName = DesktopApplicationConfiguration.getConfigurationValueForProperty("applicationName");
 
         public String format(LogRecord record) {
             StringBuilder builder = new StringBuilder(1000);

@@ -11,8 +11,6 @@ import java.io.FileOutputStream;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
-import automationframeworkdesktop.DesktopApplicationConfiguration;
-
 public class ExcelLib {
 
 	public String getXLcellValue(String sheetName, int rowNum, int cellNum, String xlpath)
