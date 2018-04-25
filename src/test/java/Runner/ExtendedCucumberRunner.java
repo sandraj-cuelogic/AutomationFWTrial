@@ -1,33 +1,22 @@
-package test.java.Runner;
+/*package test.java.Runner;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
-
-
-
-
-
-
-import org.junit.runner.Description;
-import org.junit.runner.Runner;
-import org.junit.runner.notification.Failure;
-import org.junit.runner.notification.RunNotifier;
-
 import commonautomationframework.AutomationLog;
 import commonautomationframework.ScreenshotAndTestNgReporterListener;
+
 import test.java.Runner.AfterSuite;
 import test.java.Runner.BeforeSuite;
-import cucumber.api.junit.Cucumber;
 
 public class ExtendedCucumberRunner extends Runner {
 
     private Class clazz;
-    private Cucumber cucumber;
+    private CucumberOptions cucumber;
 
     public ExtendedCucumberRunner(Class clazzValue) throws Exception {
         clazz = clazzValue;
-        cucumber = new Cucumber(clazzValue);
+        cucumber = new CucumberOptions(clazzValue);
     }
 
     @Override
@@ -79,4 +68,4 @@ public class ExtendedCucumberRunner extends Runner {
         System.out.println("FAILED!!!!!"); //Here pass your screenshot capture event
     }
     
-}
+}*/

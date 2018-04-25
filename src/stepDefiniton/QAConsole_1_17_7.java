@@ -6,8 +6,9 @@ import static org.testng.Assert.assertTrue;
 import java.io.File;
 import java.io.IOException;
 
-import junit.framework.Assert;
-
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.winium.DesktopOptions;
@@ -15,17 +16,18 @@ import org.openqa.selenium.winium.WiniumDriver;
 import org.openqa.selenium.winium.WiniumDriverService;
 
 
-
-
 import commonautomationframework.ExcelLib;
 import commonautomationframework.ScreenshotAndTestNgReporterListener;
+import cucumber.api.java.en.Given;
 import pageobjects.DesktopApplicationPage;
 import pageobjects.QAConsolePage;
 import automationframework.AutomationFramework;
 import automationframeworkdesktop.DAAutomationTestCaseVerification;
 import automationframeworkdesktop.DesktopApplicationConfiguration;
+import automationframeworkdesktop.DesktopApplicationDriverSetup;
 import automationframeworkdesktop.DesktopAutomationFramework;
 import utilities.*;
+
 
 public class QAConsole_1_17_7 extends DAAutomationTestCaseVerification {
 	WiniumDriver driver;
@@ -45,11 +47,19 @@ public class QAConsole_1_17_7 extends DAAutomationTestCaseVerification {
 
 	WebElement RMS, serialNoElement, settings, power, gSignIn, OK, disconnectClient, closeIcon;
 	
-	public QAConsole_1_17_7() {
-		invoke(path);
+	/*public QAConsole_1_17_7() {
+//		invoke(path);
+	}
+	*/
+	@BeforeClass
+	public void setup() throws Exception
+	{
+		DesktopApplicationDriverSetup.setup(path);
 	}
 	
-	
+
+	@Test(priority=1)
+	@Given("^I am able to access the QAConsole$")
 		public boolean powerOFF() throws IOException {
 
 		try {

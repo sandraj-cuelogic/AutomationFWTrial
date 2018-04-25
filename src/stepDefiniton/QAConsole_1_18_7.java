@@ -4,15 +4,12 @@ import static org.testng.Assert.assertTrue;
 
 import java.io.File;
 
-import junit.framework.Assert;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.winium.DesktopOptions;
 import org.openqa.selenium.winium.WiniumDriver;
 import org.openqa.selenium.winium.WiniumDriverService;
-
-
+import org.testng.Assert;
 
 import pageobjects.DesktopApplicationPage;
 import pageobjects.QAConsolePage;

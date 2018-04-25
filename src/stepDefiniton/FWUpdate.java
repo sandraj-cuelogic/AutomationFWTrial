@@ -4,8 +4,7 @@ package stepDefiniton;
 import java.io.File;
 import java.io.IOException;
 
-import junit.framework.Assert;
-
+import org.testng.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,7 +17,6 @@ import org.openqa.selenium.winium.WiniumDriverService;
 
 import commonautomationframework.ExcelLib;
 import commonautomationframework.ScreenshotAndTestNgReporterListener;
-import cucumber.runtime.junit.Assertions;
 import pageobjects.DesktopApplicationPage;
 import pageobjects.FWUpdatePage;
 import automationframeworkdesktop.DAAutomationTestCaseVerification;

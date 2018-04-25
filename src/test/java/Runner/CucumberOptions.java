@@ -2,8 +2,6 @@ package test.java.Runner;
 
 import java.lang.annotation.Annotation;
 
-import org.junit.runner.notification.Failure;
-import org.junit.runner.notification.RunListener;
 import org.openqa.selenium.WebDriver;
 
 import pageobjects.Page;
