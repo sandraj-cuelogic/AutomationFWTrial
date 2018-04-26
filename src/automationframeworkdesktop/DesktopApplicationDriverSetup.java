@@ -32,6 +32,7 @@ public class DesktopApplicationDriverSetup{
 					.usingPort(9999).withVerbose(true).withSilent(false).buildDesktopService();
 			service.start();
 			driver = new WiniumDriver(service, options);
+			
 		} catch (Exception e) {
 			System.err.println("\n Driver setup failed");
 		}

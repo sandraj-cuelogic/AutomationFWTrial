@@ -1,15 +1,10 @@
 package test.java.Runner;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.junit.runner.RunWith;
 
-import automationframework.AppDriver;
+import automationframeworkdesktop.DAAutomationLog;
+import automationframeworkdesktop.DesktopApplicationDriverSetup;
 import cucumber.api.CucumberOptions;
-import cucumber.api.testng.AbstractTestNGCucumberTests;
-import cucumber.api.testng.CucumberFeatureWrapper;
-import cucumber.api.testng.TestNGCucumberRunner;
-import pageobjects.Page;
+import pageobjects.DesktopApplicationPage;
  
 //@RunWith(Cucumber.class)
 @ExtendedCucumberOptions(
@@ -23,28 +18,28 @@ import pageobjects.Page;
 		)
 @CucumberOptions(
 		features = "Feature"
-		,glue={"stepDefinition"}
+		,glue={"stepDefiniton"}
 		,plugin = { "pretty", "html:target/site/cucumber-pretty", "json:target/cucumber.json","junit:target/cucumber.xml"}
-//		,tags= {"@smoke"}  // Run tests in groups
+//		,tags= {"@fwupdate"}  // Run tests in groups
 //		,monochrome = false
 //		,dryRun = true
 		)
  
-/*//@RunWith(ExtendedCucumberRunner.class)
-public class TestRunner extends AbstractTestNGCucumberTests {
+@RunWith(ExtendedCucumberRunner.class)
+public class TestRunner {
     @BeforeSuite
     public static void setUp() {
-    	AutomationLog.info("In Before Suite");
+    	DAAutomationLog.info("In Before Suite");
     }
     @AfterSuite
     public static void tearDown() {
         System.out.println("In After Suite");
-        AppDriver.clearBrowserContext(Page.driver);
-        AutomationLog.info("Quiting Webdriver Instances");
+        DesktopApplicationDriverSetup.clearBrowserContext(DesktopApplicationPage.driver);
+        DAAutomationLog.info("Quiting Webdriver Instances");
    }     
-}*/
+}
 
-public class TestRunner extends AbstractTestNGCucumberTests {
+/*public class TestRunner extends AbstractTestNGCucumberTests {
    
 
 	private TestNGCucumberRunner testNGCucumberRunner;
@@ -68,6 +63,6 @@ public class TestRunner extends AbstractTestNGCucumberTests {
     public void tearDownClass() throws Exception {
         testNGCucumberRunner.finish();
     }
-}
+}*/
 
 

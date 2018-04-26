@@ -2,10 +2,6 @@ package test.java.Runner;
 
 import java.lang.annotation.Annotation;
 
-import org.openqa.selenium.WebDriver;
-
-import pageobjects.Page;
-
 public class CucumberOptions implements ExtendedCucumberOptions{
 
 /*	public CucumberOptions(WebDriver driver) {

@@ -1,14 +1,12 @@
 package stepDefiniton;
 
 
-import static org.testng.Assert.assertTrue;
-
 import java.io.File;
 import java.io.IOException;
 
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.junit.Assert;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.winium.DesktopOptions;
@@ -18,9 +16,11 @@ import org.openqa.selenium.winium.WiniumDriverService;
 
 import commonautomationframework.ExcelLib;
 import cucumber.api.java.en.Given;
+
 import pageobjects.DesktopApplicationPage;
 import pageobjects.QAConsolePage;
 import automationframework.AutomationFramework;
+import automationframeworkdesktop.DAAutomationLog;
 import automationframeworkdesktop.DAAutomationTestCaseVerification;
 import automationframeworkdesktop.DAScreenshotAndTestNgReporterListener;
 import automationframeworkdesktop.DesktopApplicationConfiguration;
@@ -47,25 +47,33 @@ public class QAConsole_1_17_7 extends DAAutomationTestCaseVerification {
 
 	WebElement RMS, serialNoElement, settings, power, gSignIn, OK, disconnectClient, closeIcon;
 	
-	/*public QAConsole_1_17_7() {
-//		invoke(path);
-	}
-	*/
-	@BeforeClass
-	public void setup() throws Exception
+	
+	/*public void QAConsole_1_17_7() throws Exception {
+		try {
+			setup(path);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}*/
+
+	@Given("^setup for QAConsole is done$")
+	public WiniumDriver setup() throws Exception
 	{
-		DesktopApplicationDriverSetup.setup(path);
+		System.out.println(path);
+		driver = DesktopApplicationDriverSetup.setup(path);
+		DAAutomationLog.info("setup completed");
+//		driver.se
+		return driver;
 	}
 	
 
-	@Test(priority=1)
-	@Given("^I am able to access the QAConsole$")
-		public boolean powerOFF() throws IOException {
+		public boolean powerOFF() throws Exception {
 
 		try {
 			Thread.sleep(5000); // waiting for app to get in focus
-			assertTrue(!qaconsole.loginDisplayed(), "QAConsole login failed, please try again");
-
+			Assert.assertTrue(!qaconsole.loginDisplayed());
+			
 			// Login to QAConsole
 			qaConsoleLogin();
 

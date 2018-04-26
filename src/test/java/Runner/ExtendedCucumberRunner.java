@@ -1,22 +1,24 @@
-/*package test.java.Runner;
+package test.java.Runner;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
-import commonautomationframework.AutomationLog;
-import commonautomationframework.ScreenshotAndTestNgReporterListener;
+import org.junit.runner.Description;
+import org.junit.runner.Runner;
+import org.junit.runner.notification.Failure;
+import org.junit.runner.notification.RunNotifier;
 
-import test.java.Runner.AfterSuite;
-import test.java.Runner.BeforeSuite;
+import automationframeworkdesktop.DAAutomationLog;
+import cucumber.api.junit.Cucumber;
 
 public class ExtendedCucumberRunner extends Runner {
 
     private Class clazz;
-    private CucumberOptions cucumber;
+    private Cucumber cucumber;
 
     public ExtendedCucumberRunner(Class clazzValue) throws Exception {
         clazz = clazzValue;
-        cucumber = new CucumberOptions(clazzValue);
+        cucumber = new Cucumber(clazzValue);
     }
 
     @Override
@@ -59,13 +61,13 @@ public class ExtendedCucumberRunner extends Runner {
     public void testFailure(Failure failure){
      //   super.testFailure(failure);
         if (!failure.getDescription().isSuite()) {
-        	ScreenshotAndTestNgReporterListener.customScreenshot();
-        	AutomationLog.error("In Custom Failer Class of Junit");
+//        	ScreenshotAndTestNgReporterListener.customScreenshot();
+        	DAAutomationLog.error("In Custom Failer Class of Junit");
             System.out.println("FAILED!!!!!"); //Here pass your screenshot capture event
         }
-    	ScreenshotAndTestNgReporterListener.customScreenshot();
-    	AutomationLog.error("In Custom Failer Class of Junit");
+//    	ScreenshotAndTestNgReporterListener.customScreenshot();
+    	DAAutomationLog.error("In Custom Failer Class of Junit");
         System.out.println("FAILED!!!!!"); //Here pass your screenshot capture event
     }
     
-}*/
+}

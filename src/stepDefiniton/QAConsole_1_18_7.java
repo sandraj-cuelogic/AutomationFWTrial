@@ -1,15 +1,14 @@
 package stepDefiniton;
 
-import static org.testng.Assert.assertTrue;
 
 import java.io.File;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.winium.DesktopOptions;
 import org.openqa.selenium.winium.WiniumDriver;
 import org.openqa.selenium.winium.WiniumDriverService;
-import org.testng.Assert;
 
 import pageobjects.DesktopApplicationPage;
 import pageobjects.QAConsolePage;
@@ -44,8 +43,9 @@ public class QAConsole_1_18_7 extends DAAutomationTestCaseVerification {
 
 		Thread.sleep(5000);
 		System.out.println("inside QAConsole 1.18.7, value = " + fw.isFWUpdate);
-		assertTrue(fw.isFWUpdate, "FW Update failed before login to QAConsole1.18.7");
-		assertTrue(!qaconsole.loginDisplayed(), "QAConsole login failed, please try again");
+		Assert.assertTrue(fw.isFWUpdate);
+			
+		Assert.assertTrue(!qaconsole.loginDisplayed());
 
 		// Login to QAConsole
 		qaConsoleLogin();

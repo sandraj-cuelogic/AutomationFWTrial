@@ -3,7 +3,6 @@ package stepDefiniton;
 
 import java.io.IOException;
 
-import org.testng.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -12,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.winium.WiniumDriver;
 
 import commonautomationframework.ExcelLib;
+import junit.framework.Assert;
 import pageobjects.DesktopApplicationPage;
 import pageobjects.FWUpdatePage;
 import automationframeworkdesktop.DAAutomationTestCaseVerification;
