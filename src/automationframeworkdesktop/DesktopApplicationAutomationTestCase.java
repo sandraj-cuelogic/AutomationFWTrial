@@ -2,7 +2,7 @@ package automationframeworkdesktop;
 
 import java.util.HashMap;
 import cucumber.api.java.Before;
-import pageobjects.DesktopApplicationPage;
+import pageobject.DesktopApplicationPage;
 
 
 public class DesktopApplicationAutomationTestCase 
@@ -16,6 +16,7 @@ public class DesktopApplicationAutomationTestCase
 
     private String executingTestCaseName = null;
     private String executingTestCaseFileName = null;
+    String path;
 
     public DesktopApplicationAutomationTestCase() 
     {
@@ -29,38 +30,55 @@ public class DesktopApplicationAutomationTestCase
         this.executingTestCaseFileName = executingTestCaseName;
     }
     
+    
+    public String getAppPath(String appPath) {
+    	path = appPath;
+    	return path;
+    }
+    
     @Before
-	public void invoke(String path) {
+	public void invoke() {
     try {
     	if(initializationType.equalsIgnoreCase("single")) {
+    		System.out.println("Single initializationType found");
 	     if (!initialized){
+	    	 	System.out.println("initialized true");
 	            initialized = true;
+	            System.out.println("it came here");
+	            System.out.println(path);
 	              setup(path);   
-	            DAAutomationLog.info("Setting up Single Instance Type invokation");
+	              
+	              System.out.println("Setting up Single Instance Type invokation");
+	            //DAAutomationLog.info("Setting up Single Instance Type invokation");
 	        }
 			else {
-				DAAutomationLog.info("Instance is already invoked");
+				System.out.println("Instance is already invoked");
+				//DAAutomationLog.info("Instance is already invoked");
 			}
 	      }
     	else if(initializationType.equalsIgnoreCase("multiple")) {
     	 //   consetup();
  	          setup(path);    
-    		  DAAutomationLog.info("Setting up Multiple Instance Type invokation");
+ 	          System.out.println("Setting up Multiple Instance Type invokation");
+    		  //DAAutomationLog.info("Setting up Multiple Instance Type invokation");
     	}
     	else {
-    		DAAutomationLog.error("Wrong Instance Type invokation parameter. Please check the configurations");
+    		System.out.println("Wrong Instance Type invokation parameter. Please check the configurations");
+    		//DAAutomationLog.error("Wrong Instance Type invokation parameter. Please check the configurations");
     	}
     }
     catch(Exception ex) {
-    	DAAutomationLog.error("Exception occured in setup");
-    	DAAutomationLog.error(ex.getMessage());
+    	//DAAutomationLog.error("Exception occured in setup");
+    	System.out.println("Exception occured in setup");
+    	//DAAutomationLog.error(ex.getMessage());
     	ex.printStackTrace();
     }
   } 
     
     public void setup(String path) throws Exception 
     {
-        DAAutomationLog.startTestCase(executingTestCaseName);
+    	System.out.println("its in setup "+path);
+        //DAAutomationLog.startTestCase(executingTestCaseName);
         new DesktopApplicationPage(DesktopApplicationDriverSetup.setup(path));
        // populate test case data from csv
         testCaseData = DATestDataProvider.getTestData(executingTestCaseFileName);
@@ -68,7 +86,7 @@ public class DesktopApplicationAutomationTestCase
     
 /*    public void consetup() 
     {
-        DAAutomationLog.startTestCase(executingTestCaseName);
+        //DAAutomationLog.startTestCase(executingTestCaseName);
 		new Page(AppDriver.getDriver(Configuration.getConfigurationValueForProperty("browser")));
        // populate test case data from csv
         testCaseData = TestDataProvider.getTestData(executingTestCaseFileName);
@@ -82,7 +100,7 @@ public class DesktopApplicationAutomationTestCase
 
     //	Page.driver.quit();  // As per suggestion by shubham
 
-        DAAutomationLog.endTestCase(executingTestCaseName);
+        //DAAutomationLog.endTestCase(executingTestCaseName);
         
         if (testCaseData != null)
             testCaseData.clear();
@@ -91,13 +109,13 @@ public class DesktopApplicationAutomationTestCase
 
     public void testcasePassed(String customMessage) 
     {
-        DAAutomationLog.info(executingTestCaseName + " " + customMessage);
+        //DAAutomationLog.info(executingTestCaseName + " " + customMessage);
     }
 
     public void testcaseFailed(String customMessage) 
     {
-       // DAAutomationLog.info(executingTestCaseName + " " + customMessage);
-    	DAAutomationLog.info("Failed report to send = " + customMessage);
+       // //DAAutomationLog.info(executingTestCaseName + " " + customMessage);
+    	//DAAutomationLog.info("Failed report to send = " + customMessage);
 		//Quitting the driver and all pages
     	DesktopApplicationDriverSetup.clearBrowserContext(DesktopApplicationPage.driver);
     }    

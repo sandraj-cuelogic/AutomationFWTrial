@@ -1,56 +1,48 @@
 package automationframeworkdesktop;
 
 import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.winium.DesktopOptions;
 import org.openqa.selenium.winium.WiniumDriver;
 import org.openqa.selenium.winium.WiniumDriverService;
 
-import pageobjects.Page;
+import pageobject.DesktopApplicationPage;
 
-
-
-public class DesktopApplicationDriverSetup{
+public class DesktopApplicationDriverSetup {
 	static WiniumDriver driver;
- 
-	
-	public static WiniumDriver setup(String path) throws Exception {
-		try {
-			DesktopOptions options = new DesktopOptions();
-			options.setApplicationPath(path);
 
-			String WiniumDriverPath = "src//dependencies//Winium.Desktop.Driver.exe";
-			File drivePath = new File(WiniumDriverPath);
-			WiniumDriverService service = new WiniumDriverService.Builder().usingDriverExecutable(drivePath)
-					.usingPort(9999).withVerbose(true).withSilent(false).buildDesktopService();
-			service.start();
-			driver = new WiniumDriver(service, options);
-			
-		} catch (Exception e) {
-			System.err.println("\n Driver setup failed");
-		}
+	public static WiniumDriver setup(String path) throws Exception {
+		System.out.println("1");
+		DesktopOptions options = new DesktopOptions();
+		System.out.println("2 " +path);
+		options.setApplicationPath(path);
+		System.out.println("3");
+		String WiniumDriverPath = "src//dependencies//Winium.Desktop.Driver.exe";
+		System.out.println("4");
+		File drivePath = new File(WiniumDriverPath);
+		System.out.println("5");
+		WiniumDriverService service = new WiniumDriverService.Builder().usingDriverExecutable(drivePath).usingPort(9999)
+				.withVerbose(true).withSilent(false).buildDesktopService();
+		System.out.println("6");
+		service.start();
+		System.out.println("7");
+		driver = new WiniumDriver(service, options);
+		System.out.println("8");
 		return driver;
 
 	}
-	
+
 	public static void clearBrowserContext(WiniumDriver driver) {
 		try {
-			if (Page.driver != null) {
-				Page.driver.quit();
+			if (DesktopApplicationPage.driver != null) {
+				DesktopApplicationPage.driver.quit();
 			}
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 			ex.printStackTrace();
-			Page.driver.quit();
+			DesktopApplicationPage.driver.quit();
 		}
 	}
 
-	
 }

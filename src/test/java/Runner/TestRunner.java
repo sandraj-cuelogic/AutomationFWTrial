@@ -1,10 +1,10 @@
 package test.java.Runner;
 import org.junit.runner.RunWith;
 
-import automationframeworkdesktop.DAAutomationLog;
+//import automationframeworkdesktop.DAAutomationLog;
 import automationframeworkdesktop.DesktopApplicationDriverSetup;
 import cucumber.api.CucumberOptions;
-import pageobjects.DesktopApplicationPage;
+import pageobjectsOld.DesktopApplicationPage;
  
 //@RunWith(Cucumber.class)
 @ExtendedCucumberOptions(
@@ -29,13 +29,13 @@ import pageobjects.DesktopApplicationPage;
 public class TestRunner {
     @BeforeSuite
     public static void setUp() {
-    	DAAutomationLog.info("In Before Suite");
+//    	DAAutomationLog.info("In Before Suite");
     }
     @AfterSuite
     public static void tearDown() {
         System.out.println("In After Suite");
         DesktopApplicationDriverSetup.clearBrowserContext(DesktopApplicationPage.driver);
-        DAAutomationLog.info("Quiting Webdriver Instances");
+//        DAAutomationLog.info("Quiting Webdriver Instances");
    }     
 }
 

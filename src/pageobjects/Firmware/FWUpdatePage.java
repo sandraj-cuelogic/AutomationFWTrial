@@ -1,8 +1,11 @@
-package pageobjects;
+package pageobjects.Firmware;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.winium.WiniumDriver;
+
+import pageobject.DesktopApplicationPage;
 
 
 public class FWUpdatePage extends DesktopApplicationPage {
@@ -10,8 +13,8 @@ public class FWUpdatePage extends DesktopApplicationPage {
 	public boolean isPopup = true;
 	public boolean isError = true;
 	public boolean isContinue = true;
-	
-	public FWUpdatePage(WiniumDriver driver) {
+
+	public FWUpdatePage() {
 		super(driver);
 	}
 
@@ -20,6 +23,7 @@ public class FWUpdatePage extends DesktopApplicationPage {
 		return true;
 	}
 
+	
 	public boolean popupDisplayed() throws Exception {
 		try {
 			if (driver.findElementsByName("OK").isEmpty())
@@ -27,7 +31,7 @@ public class FWUpdatePage extends DesktopApplicationPage {
 
 		} catch (Exception e) {
 
-			System.out.println("Error in getting login screen");
+			Assert.fail("Error in getting OK popup");
 		}
 		return isPopup;
 	}
@@ -41,7 +45,7 @@ public class FWUpdatePage extends DesktopApplicationPage {
 
 		} catch (Exception e) {
 
-			System.out.println("Error in getting Quit Alert screen");
+			Assert.fail("Error in getting Quit Alert screen");
 		}
 		return isError;
 	}
@@ -53,75 +57,72 @@ public class FWUpdatePage extends DesktopApplicationPage {
 
 		} catch (Exception e) {
 
-			System.out.println("Error in getting Quit Alert screen");
+			Assert.fail("Error in getting Quit Alert screen");
 		}
 		return isContinue;
 	}
 
 	public WebElement getSportsMode() throws Exception {
 		try {
-			element = driver.findElement(By.name("Sports Mode"));
-
+			element = driver.findElementByXPath("//*[@AutomationId='checkBoxSpeed']");
 		} catch (Exception e) {
 
-			System.out.println("Error in getting Sports Mode field");
+			Assert.fail("Error in getting Sports Mode field");
 		}
 		return element;
 	}
 
 	public WebElement selectSerialNumber() throws Exception {
 		try {
-			element = driver
-					.findElementByXPath("//*[contains(@ControlType,'ControlType.Edit') and contains(@Name,'Broker:')]");
+			element = driver.findElementByXPath("//*[@AutomationId='textBoxRotiSerial']");
 
 		} catch (Exception e) {
 
-			System.out.println("Error in getting Serial Number field");
+			Assert.fail("Error in getting Serial Number field");
 		}
 		return element;
 	}
 
 	public WebElement getConnect() throws Exception {
 		try {
-			element = driver.findElement(By.name("Connect"));
+			element = driver.findElementByXPath("//*[@AutomationId='buttonConnect']");
 
 		} catch (Exception e) {
 
-			System.out.println("Error in getting Connect button");
+			Assert.fail("Error in getting Connect button");
 		}
 		return element;
 	}
 
 	public WebElement selectStatus() throws Exception {
 		try {
-			element = driver.findElementByXPath(
-					"//*[contains(@ControlType,'ControlType.Document') and contains(@Name,'Status:')]");
+			element = driver.findElementByXPath("//*[@AutomationId='textBoxMqttLog']");
 
 		} catch (Exception e) {
 
-			System.out.println("Error in getting Status");
+			Assert.fail("Error in getting Status");
 		}
 		return element;
 	}
 
 	public WebElement selectFWVersion() throws Exception {
 		try {
-			element = driver.findElementByName("FW version");
+			element = driver.findElementByXPath("//*[@AutomationId='buttonFwVersion']");
 
 		} catch (Exception e) {
 
-			System.out.println("Error in getting FW version button");
+			Assert.fail("Error in getting FW version button");
 		}
 		return element;
 	}
 
 	public WebElement selectStartFWUpdate() throws Exception {
 		try {
-			element = driver.findElementByName("Start Update");
+			element = driver.findElementByXPath("//*[@AutomationId='buttonStartUpdate']");
 
 		} catch (Exception e) {
 
-			System.out.println("Error in getting Start Update button");
+			Assert.fail("Error in getting Start Update button");
 		}
 		return element;
 	}
@@ -132,18 +133,18 @@ public class FWUpdatePage extends DesktopApplicationPage {
 
 		} catch (Exception e) {
 
-			System.out.println("Error in getting Continue button");
+			Assert.fail("Error in getting Continue button");
 		}
 		return element;
 	}
 
 	public WebElement getClearLogElement() throws Exception {
 		try {
-			element = driver.findElementByXPath("//*[contains(@AutomationId,'textBoxMqttLog')]");
+			element = driver.findElementByXPath("//*[@AutomationId='textBoxMqttLog']");
 
 		} catch (Exception e) {
 
-			System.out.println("Error in getting Clear Log field");
+			Assert.fail("Error in getting Clear Log field");
 		}
 		return element;
 	}
@@ -154,7 +155,7 @@ public class FWUpdatePage extends DesktopApplicationPage {
 
 		} catch (Exception e) {
 
-			System.out.println("Error in getting OK button");
+			Assert.fail("Error in getting OK button");
 		}
 		return element;
 	}
@@ -165,7 +166,7 @@ public class FWUpdatePage extends DesktopApplicationPage {
 
 		} catch (Exception e) {
 
-			System.out.println("Error in getting Disconnect button");
+			Assert.fail("Error in getting Disconnect button");
 		}
 		return element;
 	}
@@ -177,19 +178,18 @@ public class FWUpdatePage extends DesktopApplicationPage {
 
 		} catch (Exception e) {
 
-			System.out.println("Error in getting Quit button");
+			Assert.fail("Error in getting Quit button");
 		}
 		return element;
 	}
 
 	public WebElement selectClose() throws Exception {
 		try {
-			element = driver
-					.findElementByXPath("//*[contains(@ControlType,'ControlType.Button') and contains(@Name,'Close')]");
+			element = driver.findElementByXPath("//*[@AutomationId='Close']");
 
 		} catch (Exception e) {
 
-			System.out.println("Error in getting Close icon");
+			Assert.fail("Error in getting Close icon");
 		}
 		return element;
 	}

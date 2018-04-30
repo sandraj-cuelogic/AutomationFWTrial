@@ -1,39 +1,23 @@
 package stepDefiniton;
 
-
-import java.io.File;
-import java.io.IOException;
-
 import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.winium.DesktopOptions;
 import org.openqa.selenium.winium.WiniumDriver;
-import org.openqa.selenium.winium.WiniumDriverService;
-
 
 import commonautomationframework.ExcelLib;
 import cucumber.api.java.en.Given;
-
-import pageobjects.DesktopApplicationPage;
-import pageobjects.QAConsolePage;
-import automationframework.AutomationFramework;
-import automationframeworkdesktop.DAAutomationLog;
+import cucumber.api.java.en.When;
+import pageobjectsOld.QAConsolePage;
 import automationframeworkdesktop.DAAutomationTestCaseVerification;
 import automationframeworkdesktop.DAScreenshotAndTestNgReporterListener;
 import automationframeworkdesktop.DesktopApplicationConfiguration;
-import automationframeworkdesktop.DesktopApplicationDriverSetup;
-import automationframeworkdesktop.DesktopAutomationFramework;
-import utilities.*;
-
 
 public class QAConsole_1_17_7 extends DAAutomationTestCaseVerification {
 	WiniumDriver driver;
 	ExcelLib xl = new ExcelLib();
 	gmailLogin glogin = new gmailLogin();
-	QAConsolePage qaconsole = new QAConsolePage(DesktopApplicationPage.driver);
 	String xclPath = DesktopApplicationConfiguration.getValue("Excelfile");
 	String FOLDER_QACONSOLE = DesktopApplicationConfiguration.getValue("FOLDER_QACONSOLE");
 
@@ -44,44 +28,33 @@ public class QAConsole_1_17_7 extends DAAutomationTestCaseVerification {
 	String machineStatus = "";
 	String notConnectedStatus = "Server connected";
 	public boolean ispowerOff;
+	QAConsolePage qaconsole = new QAConsolePage(pageobject.DesktopApplicationPage.driver);
 
 	WebElement RMS, serialNoElement, settings, power, gSignIn, OK, disconnectClient, closeIcon;
-	
-	
-	/*public void QAConsole_1_17_7() throws Exception {
-		try {
-			setup(path);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}*/
 
+	@Before
 	@Given("^setup for QAConsole is done$")
-	public WiniumDriver setup() throws Exception
-	{
-		System.out.println(path);
-		driver = DesktopApplicationDriverSetup.setup(path);
-		DAAutomationLog.info("setup completed");
-//		driver.se
-		return driver;
+	public void setup() throws Exception {
+		getAppPath(path);
+		invoke();
+		System.out.println("setup completed");
 	}
-	
 
-		public boolean powerOFF() throws Exception {
+	@When("^the Rotimatic machine power offs$")
+	public boolean powerOFF() throws Exception {
 
 		try {
-			Thread.sleep(5000); // waiting for app to get in focus
-			Assert.assertTrue(!qaconsole.loginDisplayed());
-			
+			System.out.println(qaconsole.loginDisplayed());
+			Assert.assertFalse(qaconsole.loginDisplayed());
+
 			// Login to QAConsole
 			qaConsoleLogin();
 
 			// Check whether qaconsole is opened successfully or not
 			if (qaconsole.homeDisplayed()) {
 				ispowerOff = false;
-				DAScreenshotAndTestNgReporterListener.customScreenshot();
-//				getScreenshot(driver, FOLDER_QACONSOLE);
+				DAScreenshotAndTestNgReporterListener.getScreenshot(driver, FOLDER_QACONSOLE);
+				// getScreenshot(driver, FOLDER_QACONSOLE);
 				Assert.fail(" QAConsole login failed, please try again");
 			}
 			// Connect to serial number
@@ -90,8 +63,8 @@ public class QAConsole_1_17_7 extends DAAutomationTestCaseVerification {
 			settings = qaconsole.selectSettings();
 			settings.click();
 			Thread.sleep(1000);
-			DAScreenshotAndTestNgReporterListener.customScreenshot();
-//			getScreenshot(driver, FOLDER_QACONSOLE);
+			DAScreenshotAndTestNgReporterListener.getScreenshot(driver, FOLDER_QACONSOLE);
+			// getScreenshot(driver, FOLDER_QACONSOLE);
 
 			// Check machine is power off / On Step 4
 			power = qaconsole.selectPower();
@@ -123,13 +96,13 @@ public class QAConsole_1_17_7 extends DAAutomationTestCaseVerification {
 
 		// Check status
 		status = qaconsole.selectStatus().getText();
-		DAScreenshotAndTestNgReporterListener.customScreenshot();
-//		getScreenshot(driver, FOLDER_QACONSOLE);
+		DAScreenshotAndTestNgReporterListener.getScreenshot(driver, FOLDER_QACONSOLE);
+		// getScreenshot(driver, FOLDER_QACONSOLE);
 
 		// Check machine is connected to Internet or not
 		if (status.contains(notConnectedStatus)) {
-			DAScreenshotAndTestNgReporterListener.customScreenshot();
-//			getScreenshot(driver, FOLDER_QACONSOLE);
+			DAScreenshotAndTestNgReporterListener.getScreenshot(driver, FOLDER_QACONSOLE);
+			// getScreenshot(driver, FOLDER_QACONSOLE);
 			System.err.println("\n Machine is not connected to internet");
 			disconnectClient();
 			try {

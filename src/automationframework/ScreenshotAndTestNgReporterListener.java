@@ -5,7 +5,9 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.Augmenter;
-import pageobjects.Page;
+
+import pageobjectsOld.Page;
+
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileOutputStream;

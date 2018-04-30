@@ -1,11 +1,13 @@
-package pageobjects;
+package pageobject;
 /**
  * @author Shubham Jain
  * */
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.winium.WiniumDriver;
+
+import automationframeworkdesktop.DesktopApplicationDriverSetup;
+import automationframeworkdesktop.DesktopPageFactory;
 
 
 public class DesktopApplicationPage 
@@ -14,10 +16,14 @@ public class DesktopApplicationPage
 
     public DesktopApplicationPage(WiniumDriver driver)
     {
+    	System.out.println(driver);
         DesktopApplicationPage.driver = driver;
-		PageFactory.initElements(driver, this);
+        System.out.println(driver);
+//    	DesktopApplicationPage.driver = DesktopApplicationDriverSetup.setup(path);
+    	DesktopPageFactory.initElements(driver, this);
+		System.out.println(driver);
     }
-
+    
  
     protected boolean isSecured()
     {
@@ -28,12 +34,10 @@ public class DesktopApplicationPage
     {
         return PageFactory.initElements(driver, Header.class);
     }
-
     public static Footer footer() 
     {
         return PageFactory.initElements(driver, Footer.class);
     }
-
     public static ContentPagesLeftMenu contentPagesLeftMenu()
     {
         return PageFactory.initElements(driver, ContentPagesLeftMenu.class);

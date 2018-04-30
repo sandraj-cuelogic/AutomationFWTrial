@@ -2,7 +2,7 @@ package automationframeworkdesktop;
 
 import java.util.Collection;
 
-import pageobjects.Page;
+
 
 //import mailReport.MyReporterListener;
 //import mailReport.SendMailClass;
@@ -19,9 +19,9 @@ public abstract class DAAutomationTestCaseVerification extends DesktopApplicatio
         super(executingTestCase);
     }
 
-    public void invoke(String path)
+    public void invoke()
     {
-        super.invoke(path);
+        super.invoke();
     }
         
     public void setup(String path) throws Exception
@@ -101,7 +101,7 @@ public abstract class DAAutomationTestCaseVerification extends DesktopApplicatio
 
     private void handleTestCaseFailure(String message) throws Exception
     {
-        DAAutomationLog.error(message);
+        //DAAutomationLog.error(message);
  //       System.out.println("Faliure message = " +failureMessage());
         testcaseFailed(message);
 //        SendMailClass email = new SendMailClass();

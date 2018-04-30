@@ -1,4 +1,4 @@
-package stepDefiniton;
+/*package stepDefiniton;
 
 
 import java.io.IOException;
@@ -12,8 +12,8 @@ import org.openqa.selenium.winium.WiniumDriver;
 
 import commonautomationframework.ExcelLib;
 import junit.framework.Assert;
-import pageobjects.DesktopApplicationPage;
-import pageobjects.FWUpdatePage;
+import pageobjectsOld.DesktopApplicationPage;
+import pageobjectsOld.FWUpdatePage;
 import automationframeworkdesktop.DAAutomationTestCaseVerification;
 import automationframeworkdesktop.DAScreenshotAndTestNgReporterListener;
 import automationframeworkdesktop.DesktopApplicationConfiguration;
@@ -40,7 +40,7 @@ public class FWUpdate extends DAAutomationTestCaseVerification {
 			continueElement, disconnect;
 	
 	public FWUpdate() {
-		invoke(path);
+		invoke();
 	}
 	
 	
@@ -294,3 +294,4 @@ public class FWUpdate extends DAAutomationTestCaseVerification {
 
 	}
 }
+*/

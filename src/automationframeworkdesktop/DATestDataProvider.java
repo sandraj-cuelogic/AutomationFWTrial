@@ -34,11 +34,11 @@ public class DATestDataProvider
         }
         catch(FileNotFoundException fnfe)
         {
-        	DAAutomationLog.info("Not able to read config file due to " + fnfe.toString() + " test data loading failed.");
+        	//DAAutomationLog.info("Not able to read config file due to " + fnfe.toString() + " test data loading failed.");
         }
         catch (Exception e) 
         {
-        	DAAutomationLog.info("Not able to read config file due to " + e.toString() + " test data loading failed.");
+        	//DAAutomationLog.info("Not able to read config file due to " + e.toString() + " test data loading failed.");
         }
         finally
         {
@@ -51,7 +51,7 @@ public class DATestDataProvider
             }
             catch (IOException e) 
             {
-            	DAAutomationLog.info("Not able to close config file due to " + e.toString() + " test data might not have loaded correctly.");
+            	//DAAutomationLog.info("Not able to close config file due to " + e.toString() + " test data might not have loaded correctly.");
             }
         }
     }

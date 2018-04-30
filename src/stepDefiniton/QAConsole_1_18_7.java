@@ -1,4 +1,4 @@
-package stepDefiniton;
+/*package stepDefiniton;
 
 
 import java.io.File;
@@ -10,9 +10,9 @@ import org.openqa.selenium.winium.DesktopOptions;
 import org.openqa.selenium.winium.WiniumDriver;
 import org.openqa.selenium.winium.WiniumDriverService;
 
-import pageobjects.DesktopApplicationPage;
-import pageobjects.QAConsolePage;
 import commonautomationframework.ExcelLib;
+import pageobjectsOld.DesktopApplicationPage;
+import pageobjectsOld.QAConsolePage;
 import automationframeworkdesktop.DAAutomationTestCaseVerification;
 import automationframeworkdesktop.DAScreenshotAndTestNgReporterListener;
 import automationframeworkdesktop.DesktopApplicationConfiguration;
@@ -36,7 +36,7 @@ public class QAConsole_1_18_7 extends DAAutomationTestCaseVerification {
 	WebElement RMS, serialNoElement, settings, power, gSignIn, OK, disconnectClient, closeIcon, saveEEPROM;
 	
 	public QAConsole_1_18_7() {
-		invoke(path);
+		invoke();
 	}
 	
 	public void saveRotiFile() throws Exception {
@@ -187,4 +187,4 @@ public class QAConsole_1_18_7 extends DAAutomationTestCaseVerification {
 		closeIcon = qaconsole.selectClose();
 		closeIcon.click();
 	}
-}
+}*/

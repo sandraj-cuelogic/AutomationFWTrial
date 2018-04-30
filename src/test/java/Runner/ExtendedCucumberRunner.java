@@ -8,7 +8,7 @@ import org.junit.runner.Runner;
 import org.junit.runner.notification.Failure;
 import org.junit.runner.notification.RunNotifier;
 
-import automationframeworkdesktop.DAAutomationLog;
+//import automationframeworkdesktop.//DAAutomationLog;
 import cucumber.api.junit.Cucumber;
 
 public class ExtendedCucumberRunner extends Runner {
@@ -62,11 +62,11 @@ public class ExtendedCucumberRunner extends Runner {
      //   super.testFailure(failure);
         if (!failure.getDescription().isSuite()) {
 //        	ScreenshotAndTestNgReporterListener.customScreenshot();
-        	DAAutomationLog.error("In Custom Failer Class of Junit");
+        	//DAAutomationLog.error("In Custom Failer Class of Junit");
             System.out.println("FAILED!!!!!"); //Here pass your screenshot capture event
         }
 //    	ScreenshotAndTestNgReporterListener.customScreenshot();
-    	DAAutomationLog.error("In Custom Failer Class of Junit");
+    	//DAAutomationLog.error("In Custom Failer Class of Junit");
         System.out.println("FAILED!!!!!"); //Here pass your screenshot capture event
     }
     

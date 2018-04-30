@@ -1,4 +1,4 @@
-package pageobjects;
+package pageobject;
 /**
  * @author Shubham Jain
  * */
@@ -38,12 +38,10 @@ public class Page
     {
         return PageFactory.initElements(driver, Header.class);
     }
-
     public static Footer footer() 
     {
         return PageFactory.initElements(driver, Footer.class);
     }
-
     public static ContentPagesLeftMenu contentPagesLeftMenu()
     {
         return PageFactory.initElements(driver, ContentPagesLeftMenu.class);

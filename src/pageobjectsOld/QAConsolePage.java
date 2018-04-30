@@ -1,29 +1,39 @@
-package pageobjects;
+package pageobjectsOld;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.winium.WiniumDriver;
 
-public class QAConsolePage extends DesktopApplicationPage {
+public class QAConsolePage extends pageobject.DesktopApplicationPage {
+	private WebElement element;
 
-	public static WebElement element;
-	public boolean isLogin = false;
+	public QAConsolePage(WiniumDriver driver) {
+		super(driver);
+		System.out.println("in constructor");
+		System.out.println(driver);
+	}
+
+	public boolean isLogin;
 	public boolean isManual = false;
 	public boolean isPopup = false;
 	public boolean isSaveEEPROM = false;
-	
-	public QAConsolePage(WiniumDriver driver) {
+
+/*	public QAConsolePage() {
 		super(driver);
-	}
-	
+		System.out.println(driver + " 2");
+	}*/
+
 	protected boolean isSecured() {
 		return true;
 	}
-
+	
 
 	public boolean loginDisplayed() throws Exception {
 		try {
-			if (driver.findElementsByName("Log in").isEmpty())
+			System.out.println("its in loginDisplayed");
+			System.out.println(driver);
+			Thread.sleep(7000);
+			if (driver.findElementByName("Log in").isDisplayed())
 				isLogin = true;
 
 		} catch (Exception e) {

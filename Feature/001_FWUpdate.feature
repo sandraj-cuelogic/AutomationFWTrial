@@ -4,3 +4,4 @@ Feature: FW Update scenario
 
   Scenario: Open QAConsole1.17.7
     Given setup for QAConsole is done
+    When the Rotimatic machine power offs
